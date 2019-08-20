@@ -1,0 +1,43 @@
+url : jdbc:h2:tcp://localhost/~/NIITGrievance
+user : sa
+pass : pass
+
+
+create table Grievance
+(
+GRID varchar(20) primary key,
+Subject varchar(50) not null,
+Category varchar(50) not null,
+SubCategory varchar(50) not null,
+StudentID varchar(13) not null,
+Detail varchar(255) not null,
+PostDate Date not null,
+Status varchar(10) not null
+)
+
+
+Create table GrievanceAction(
+GRACID varchar(20) primary key,
+GRID varchar(20) foriegn key references Grievance(GRID),
+ActionDate Date not null,
+ActionDetail varchar(255) not null,
+ActionStatus varchar(10) not null
+)
+
+
+ALTER TABLE  GrievanceAction ADD CONSTRAINT gridfk FOREIGN KEY(GRID) REFERENCES Grievance(GRID) ON DELETE RESTRICT;
+
+  
+	echo "# CGRS" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Hameed370/CGRS.git
+git push -u origin master
+
+
+
+
+
+git remote add origin https://github.com/Hameed370/CGRS.git
+git push -u origin master
